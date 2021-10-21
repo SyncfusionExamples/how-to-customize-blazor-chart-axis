@@ -1,0 +1,61 @@
+﻿@page "/"
+
+<SfChart Title="Weather Statistics">
+    <ChartSeriesCollection>
+
+        @*Chart Axis Customization*@
+        @*<ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" Title="Days of the Week"
+                           CrossesAt="30" CrossesInAxis="YAxis">
+            <ChartAxisMajorTickLines Width="5" Color="red" />
+            <ChartAxisMajorGridLines Width="1" Color="blue" />
+        </ChartPrimaryXAxis>
+        <ChartPrimaryYAxis Title="Temperature" LabelFormat="{value}°F" Minimum="0" Maximum="100" Interval="20"
+                           OpposedPosition="true" IsInversed="true" CrossesAt="2">
+            <ChartAxisMajorTickLines Width="5" Color="red" />
+            <ChartAxisMajorGridLines Width="1" Color="blue" />
+        </ChartPrimaryYAxis>*@
+
+        @*Multiple Axis Code*@
+
+        <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" Title="Days of the Week"
+                           CrossesAt="30" CrossesInAxis="YAxis1">
+        </ChartPrimaryXAxis>
+        <ChartPrimaryYAxis Title=" Temperature " LabelFormat=" {value} F" Minimum="0" Maximum="100" Interval="20"
+                           CrossesAt="2">
+        </ChartPrimaryYAxis>
+        <ChartAxes>
+            <ChartAxis Name="YAxis1" Minimum="24" Maximum="36" Interval="2"
+                       LabelFormat="{value}°C" OpposedPosition="true"></ChartAxis>
+        </ChartAxes>
+        <ChartSeries DataSource="@ChartData" XName="Days" YName="Temperature" Type="ChartSeriesType.Column">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Line" DataSource="@ChartData" XName="Days"
+                     YName="Temperature1" YAxisName="YAxis1">
+            <ChartMarker Visible="true" Width="10" Height="10">
+                <ChartMarkerBorder Color="#F8AB1D" Width="2"></ChartMarkerBorder>
+            </ChartMarker>
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+
+@code {
+
+    public class ChartDataModel
+    {
+        public string Days { get; set; }
+        public double Temperature { get; set; }
+        public double Temperature1 { get; set; }
+    }
+
+    public List<ChartDataModel> ChartData = new List<ChartDataModel>
+    {
+        new ChartDataModel { Days = "Sunday", Temperature = 35, Temperature1 = 30 },
+        new ChartDataModel { Days = "Monday" , Temperature = 40, Temperature1 = 28 },
+        new ChartDataModel { Days = "Tuesday",  Temperature = 80, Temperature1 = 29 },
+        new ChartDataModel { Days = "Wednesday" , Temperature = 70, Temperature1 = 30 },
+        new ChartDataModel { Days = "Thursday", Temperature = 65, Temperature1 = 33 },
+        new ChartDataModel { Days = "Friday", Temperature = 55, Temperature1 = 32 },
+        new ChartDataModel { Days = "Saturday", Temperature = 50, Temperature1 = 34 }
+    };
+
+}
