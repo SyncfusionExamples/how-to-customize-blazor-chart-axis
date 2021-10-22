@@ -1,7 +1,6 @@
 ﻿@page "/"
 
 <SfChart Title="Weather Statistics">
-    <ChartSeriesCollection>
 
         @*Chart Axis Customization*@
         @*<ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" Title="Days of the Week"
@@ -27,6 +26,7 @@
             <ChartAxis Name="YAxis1" Minimum="24" Maximum="36" Interval="2"
                        LabelFormat="{value}°C" OpposedPosition="true"></ChartAxis>
         </ChartAxes>
+    <ChartSeriesCollection>
         <ChartSeries DataSource="@ChartData" XName="Days" YName="Temperature" Type="ChartSeriesType.Column">
         </ChartSeries>
         <ChartSeries Type="ChartSeriesType.Line" DataSource="@ChartData" XName="Days"
