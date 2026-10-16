@@ -53,10 +53,6 @@ dotnet run
 
 Open the URL displayed in the terminal after the application starts.
 
-## Project Structure
-
-- `Client/Pages/Index.razor` — contains the Syncfusion chart axis customization sample including multiple-axis, axis-crossing, and inverted-axis scenarios.
-
 ## Support and Feedback
 
 - For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
